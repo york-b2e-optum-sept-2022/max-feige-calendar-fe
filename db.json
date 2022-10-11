@@ -1,0 +1,24 @@
+{
+  "users":
+    [
+      {
+        "id": 0,
+        "username": "admin",
+        "password": "admin"
+      }
+    ],
+  "events":
+    [
+      {
+        "id": 0,
+        "ownerID": 0,
+        "invites":
+          [
+            {
+              "invitee": 1,
+              "status": 0
+            }
+          ]
+      }
+    ]
+}
