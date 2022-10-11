@@ -7,6 +7,7 @@ export enum InviteStatus
 }
 export interface IUser
 {
+  id: number,
   username: string,
   password: string
 }
@@ -17,6 +18,7 @@ export interface IInvite
 }
 export interface IEvent
 {
+  id: number,
   creator: IUser,
   date: Date,
   invites: IInvite[]
