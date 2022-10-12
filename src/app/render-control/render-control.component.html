@@ -1,4 +1,4 @@
-<div class = 'back'>
+<div id = 'outer'>
   <app-login-or-register (OnLogin)="SetState(RenderState.USER_PAGE)"
                          *ngIf="rState===RenderState.LOGIN"></app-login-or-register>
   <app-user-home (ChangeState)="SetState($event)" *ngIf="rState === RenderState.USER_PAGE"></app-user-home>

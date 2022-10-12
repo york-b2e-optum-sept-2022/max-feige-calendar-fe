@@ -1,5 +1,7 @@
-Event Title: <input type = "text" [(ngModel)]="title">
-<ngb-datepicker [(ngModel)]="model"></ngb-datepicker>
-Event Description: <textarea [(ngModel)]="description"></textarea>
-<button (click) = "Submit()">Submit</button>
-{{errorMessage}}
+<div class='ev-view'>
+  Event Title: <input type="text" [(ngModel)]="title">
+  <div id="dp-view"><ngb-datepicker [(ngModel)]="model"></ngb-datepicker></div>
+  Event Description: <textarea [(ngModel)]="description"></textarea>
+  <button (click)="Submit()">Submit</button>
+  {{errorMessage}}
+</div>

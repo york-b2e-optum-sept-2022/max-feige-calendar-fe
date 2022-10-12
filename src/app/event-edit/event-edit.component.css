@@ -1,16 +1,45 @@
+.ev-view
+{
+  display: flex;
+  flex-direction: column;
+}
+ngb-datepicker
+{
+  background: white;
+}
 .invite-class0
 {
+  height: 2rem;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 2px;
   background-color: lightgrey;
 }
 .invite-class1
 {
+  height: 2rem;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 2px;
   background-color: lightcoral;
 }
 .invite-class2
 {
+  height: 2rem;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 2px;
   background-color: lightyellow;
 }
 .invite-class3
 {
+  height: 2rem;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 2px;
   background-color: lightgreen;
+}
+.remove-inv
+{
+  float:right;
 }

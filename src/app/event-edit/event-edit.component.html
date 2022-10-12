@@ -1,12 +1,21 @@
-Event Title: <input type = "text" [(ngModel)]="title">
-<ngb-datepicker [(ngModel)]="model"></ngb-datepicker>
-Event Description: <textarea [(ngModel)]="description"></textarea>
-<button [disabled]="disabled" (click) = "Update()">Update</button>
-<input type = "text" [(ngModel)]="inviteUsername"> <button  [disabled]="disabled" (click)="InviteUser()">Invite</button>
-<button (click)="Delete()">Delete</button>
-{{errorMessage}}
+<div class='ev-view'>
 
-<div>
-  <div *ngFor = "let invite of invites" [class] ="'invite-class'+invite.status" >{{invite.invitee.username}}  <button (click) = "RemoveInvite(invite)">X</button>
+  Event Title: <input type="text" [(ngModel)]="title">
+  <div id="dp-view"><ngb-datepicker [(ngModel)]="model"></ngb-datepicker></div>
+  Event Description: <textarea [(ngModel)]="description"></textarea>
+  <button [disabled]="disabled" (click)="Update()">Update</button>
+  <div><input type="text" [(ngModel)]="inviteUsername">
+    <button [disabled]="disabled" (click)="InviteUser()">Invite</button>
   </div>
+  {{errorMessage}}
+
+  <div>
+    <div *ngFor="let invite of invites" >
+      <div [class]="'invite-class'+invite.status">{{invite.invitee.username}}
+        <button class = 'remove-inv' (click)="RemoveInvite(invite)">X</button>
+      </div>
+    </div>
+  </div>
+  <button (click)="Delete()">Delete Event</button>
+
 </div>

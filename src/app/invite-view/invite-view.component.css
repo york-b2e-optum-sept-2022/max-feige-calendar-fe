@@ -1,17 +1,46 @@
 
 .invite-class0
 {
+  border: 1px solid black;
   background-color: lightgrey;
+  padding: 1rem;
 }
 .invite-class1
 {
+  border: 1px solid black;
   background-color: lightcoral;
+  padding: 1rem;
+
 }
 .invite-class2
 {
+  border: 1px solid black;
   background-color: lightyellow;
+  padding: 1rem;
+
 }
 .invite-class3
 {
+  border: 1px solid black;
   background-color: lightgreen;
+  padding: 1rem;
+
 }
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+.custom-day.range, .custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+

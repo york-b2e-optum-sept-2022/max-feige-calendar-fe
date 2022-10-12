@@ -1,11 +1,29 @@
-<div id = "outer">
-  <div *ngFor="let event of invitedEvents">
-    <div [class]="'invite-class'+GetMyInvite(event).status" >
+<div id="outer">
+  <div>
+    <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"
+                    outsideDays="hidden">
+    </ngb-datepicker>
 
-      {{event.title}} : {{event.date.toDateString()}} by {{event.creator.username}}
+    <ng-template #t let-date let-focused="focused">
+  <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isRange(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date"
+        (mouseleave)="hoveredDate = null">
+    {{ date.day }}
+  </span>
+    </ng-template>
+  </div>
+  <div *ngFor="let event of filteredInvites">
+    <div [class]="'invite-class'+GetMyInvite(event).status">
+
+      {{AbbreviateString(event.title)}} : {{event.date.toDateString()}} by {{event.creator.username}} &nbsp;&nbsp;&nbsp;
       <!-- dropdown letting you change invite status -->
+
       <div ngbDropdown class="d-inline-block">
-        <button [disabled]="disabled" type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{GetStatusString(GetMyInvite(event).status)}}</button>
+        <button [disabled]="disabled" type="button" class="btn btn-outline-primary" id="dropdownBasic1"
+                ngbDropdownToggle>{{GetStatusString(GetMyInvite(event).status)}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <button (click)="ChangeInviteStatus(event,InviteStatus.NO)" ngbDropdownItem>No</button>
           <button (click)="ChangeInviteStatus(event,InviteStatus.MAYBE)" ngbDropdownItem>Maybe</button>
@@ -14,13 +32,15 @@
       </div>
       <!-- Dropdown displaying all users and what their status is -->
       <div ngbDropdown class="d-inline-block">
-        <button type="button" class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>View Invited</button>
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>View Invited
+        </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button [class]="'invite-class'+invite.status" ngbDropdownItem *ngFor="let invite of event.invites">{{invite.invitee.username}}</button>
+          <button [class]="'invite-class'+invite.status" ngbDropdownItem
+                  *ngFor="let invite of event.invites">{{invite.invitee.username}}</button>
         </div>
       </div>
       <button type="button" class="btn btn-outline-secondary me-2" placement="bottom"
-              [ngbPopover]="event.description + ' : ' + event.date.toDateString()" [popoverTitle]="event.title">
+              [ngbPopover]="event.description" [popoverTitle]="event.title+ ' : ' + event.date.toDateString()">
         Details
       </button>
     </div>

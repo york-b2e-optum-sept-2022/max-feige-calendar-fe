@@ -1,0 +1,9 @@
+.ev-view
+{
+  display: flex;
+  flex-direction: column;
+}
+ngb-datepicker
+{
+  background: white;
+}

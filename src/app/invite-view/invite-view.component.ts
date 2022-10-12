@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from "../data.service";
 import {IEvent, IInvite, InviteStatus} from "../appTypes";
+import {NgbCalendar, NgbDate} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-invite-view',
@@ -11,12 +12,54 @@ export class InviteViewComponent implements OnInit {
 
   readonly InviteStatus = InviteStatus;
   invitedEvents!: IEvent[];
+  filteredInvites !: IEvent[];
   disabled = false;
   errorMessage = "";
+  hoveredDate: NgbDate | null = null;
 
-  constructor(private dataService: DataService) {
+  fromDate: NgbDate;
+  toDate: NgbDate | null = null;
+
+  constructor(calendar: NgbCalendar, private dataService: DataService) {
     this.invitedEvents = this.dataService.GetInvitedEvents();
+    this.fromDate = calendar.getToday();
+    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
+
+  filter() : void
+  {
+    if(this.toDate !== null && this.fromDate !== null)
+    {
+      let realEnd = new Date(this.toDate.year, this.toDate.month - 1,this.toDate.day);
+      let realStart = new Date(this.fromDate.year,this.fromDate.month-1,this.fromDate.day);
+      this.filteredInvites = this.invitedEvents.filter((x) =>  x.date >= realStart && x.date <= realEnd);
+    }
+  }
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromDate = date;
+    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+      this.toDate = date;
+    } else {
+      this.toDate = null;
+      this.fromDate = date;
+    }
+
+    this.filter();
+  }
+
+  isHovered(date: NgbDate) {
+    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+  }
+
+  isInside(date: NgbDate) {
+    return this.toDate && date.after(this.fromDate) && date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    return date.equals(this.fromDate) || (this.toDate && date.equals(this.toDate)) || this.isInside(date) || this.isHovered(date);
+  }
+
   GetStatusString(status: InviteStatus)
   {
     switch(status)
@@ -63,6 +106,14 @@ export class InviteViewComponent implements OnInit {
 
   }
   ngOnInit(): void {
+  }
+  AbbreviateString(str : string)
+  {
+    if(str.length < 9)
+    {
+      return str;
+    }
+    return str.slice(0,6)+"...";
   }
 
 }
