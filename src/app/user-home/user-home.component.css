@@ -1,0 +1,15 @@
+div
+{
+  margin: 3rem;
+}
+
+.custom-badge
+{
+  border-radius: 50%;
+  background: red;
+  color: black;
+  border: 1px solid black;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-block;
+}
