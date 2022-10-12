@@ -13,6 +13,7 @@ export class RenderControlComponent implements OnInit {
   //Grab that enum from above, for some reason the enum keyword isn't happy here and I'm to lazy to find out why.
   readonly RenderState = RenderState;
   rState: RenderState
+  inputData: any;
   constructor(private dataService: DataService) {
     this.rState = RenderState.LOGIN;
   }
@@ -20,8 +21,9 @@ export class RenderControlComponent implements OnInit {
   {
 
   }
-  public SetState(state:RenderState)
+  public SetState(state:RenderState, data: any = {})
   {
+    this.inputData = data;
     console.log(this.dataService.GetCurrentUser());
     this.rState = state;
   }

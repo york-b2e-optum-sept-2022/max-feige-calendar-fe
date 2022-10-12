@@ -1,0 +1,5 @@
+<div> EVENT VIEW
+  <div *ngFor = "let event of filteredEvents">
+    {{event.title}} : {{event.date.toDateString()}} by {{event.creator.username}} <button (click) = "GotoEvent(event)">GOTO</button>
+  </div>
+</div>

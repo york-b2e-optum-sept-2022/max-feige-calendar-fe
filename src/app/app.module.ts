@@ -10,6 +10,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { UserPageComponent } from './user-page/user-page.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { EventCreateComponent } from './event-create/event-create.component';
+import { EventEditComponent } from './event-edit/event-edit.component';
+import { EventsViewComponent } from './events-view/events-view.component';
+import { InviteViewComponent } from './invite-view/invite-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { EventCreateComponent } from './event-create/event-create.component';
     RenderControlComponent,
     UserPageComponent,
     UserHomeComponent,
-    EventCreateComponent
+    EventCreateComponent,
+    EventEditComponent,
+    EventsViewComponent,
+    InviteViewComponent
   ],
     imports: [
         BrowserModule,

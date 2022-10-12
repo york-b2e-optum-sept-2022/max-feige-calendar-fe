@@ -1,3 +1,5 @@
-Event Title: <input type = "text">
+Event Title: <input type = "text" [(ngModel)]="title">
 <ngb-datepicker [(ngModel)]="model"></ngb-datepicker>
-<button (click) = "logTest()">Logger</button>
+Event Description: <textarea [(ngModel)]="description"></textarea>
+<button (click) = "Submit()">Submit</button>
+{{errorMessage}}

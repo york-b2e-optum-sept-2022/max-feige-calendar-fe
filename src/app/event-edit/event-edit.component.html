@@ -1,0 +1,11 @@
+Event Title: <input type = "text" [(ngModel)]="title">
+<ngb-datepicker [(ngModel)]="model"></ngb-datepicker>
+Event Description: <textarea [(ngModel)]="description"></textarea>
+<button [disabled]="disabled" (click) = "Update()">Update</button>
+<input type = "text" [(ngModel)]="inviteUsername"> <button  [disabled]="disabled" (click)="InviteUser()">Invite</button>
+<button (click)="Delete()">Delete</button>
+{{errorMessage}}
+
+<div>
+  <div *ngFor = "let invite of invites" [class] ="'invite-class'+invite.status" >{{invite.invitee.username}}</div>
+</div>

@@ -20,6 +20,7 @@ export interface IEvent
 {
   id: number,
   title: string,
+  description: string,
   creator: IUser,
   date: Date,
   invites: IInvite[]
@@ -32,6 +33,6 @@ export enum RenderState
   EVENT_CREATE=1,
   EVENT_EDIT=2,
   INVITE_VIEW=3,
-  EVENT_VIEW=4,
+  EVENTS_VIEW=4,
   USER_PAGE=5
 }
