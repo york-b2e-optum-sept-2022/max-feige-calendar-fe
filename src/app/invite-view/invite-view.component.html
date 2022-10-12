@@ -1,1 +1,29 @@
-<p>invite-view works!</p>
+<div id = "outer">
+  <div *ngFor="let event of invitedEvents">
+    <div [class]="'invite-class'+GetMyInvite(event).status" >
+
+      {{event.title}} : {{event.date.toDateString()}} by {{event.creator.username}}
+      <!-- dropdown letting you change invite status -->
+      <div ngbDropdown class="d-inline-block">
+        <button [disabled]="disabled" type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{GetStatusString(GetMyInvite(event).status)}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button (click)="ChangeInviteStatus(event,InviteStatus.NO)" ngbDropdownItem>No</button>
+          <button (click)="ChangeInviteStatus(event,InviteStatus.MAYBE)" ngbDropdownItem>Maybe</button>
+          <button (click)="ChangeInviteStatus(event,InviteStatus.YES)" ngbDropdownItem>Yes</button>
+        </div>
+      </div>
+      <!-- Dropdown displaying all users and what their status is -->
+      <div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>View Invited</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button [class]="'invite-class'+invite.status" ngbDropdownItem *ngFor="let invite of event.invites">{{invite.invitee.username}}</button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-secondary me-2" placement="bottom"
+              [ngbPopover]="event.description + ' : ' + event.date.toDateString()" [popoverTitle]="event.title">
+        Details
+      </button>
+    </div>
+
+  </div>
+</div>

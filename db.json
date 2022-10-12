@@ -14,6 +14,16 @@
       "username": "admin2",
       "password": "123456",
       "id": 2
+    },
+    {
+      "username": "feeg2",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "username": "feeg3",
+      "password": "123456",
+      "id": 4
     }
   ],
   "events": [
@@ -27,33 +37,29 @@
         {
           "invitee": 1,
           "status": 0
-        },
-        {
-          "invitee": 2,
-          "status": 0
         }
       ]
     },
     {
       "id": 1,
-      "ownerID": 1,
       "title": "Test",
-      "description": "Not Much",
       "date": "Tue Oct 11 2022",
+      "description": "Not Much",
+      "ownerID": 1,
       "invites": [
         {
           "invitee": 0,
+          "status": 3
+        },
+        {
+          "invitee": 3,
+          "status": 0
+        },
+        {
+          "invitee": 4,
           "status": 0
         }
       ]
-    },
-    {
-      "title": "asdf",
-      "description": "ah",
-      "ownerID": 0,
-      "date": "Wed Oct 12 2022",
-      "invites": [],
-      "id": 4
     }
   ]
 }

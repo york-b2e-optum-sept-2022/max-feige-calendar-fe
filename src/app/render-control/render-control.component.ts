@@ -24,7 +24,6 @@ export class RenderControlComponent implements OnInit {
   public SetState(state:RenderState, data: any = {})
   {
     this.inputData = data;
-    console.log(this.dataService.GetCurrentUser());
     this.rState = state;
   }
 

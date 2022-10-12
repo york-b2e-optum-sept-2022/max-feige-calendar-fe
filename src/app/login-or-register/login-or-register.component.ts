@@ -18,7 +18,9 @@ export class LoginOrRegisterComponent implements OnInit {
   constructor(private dataService: DataService) { }
   errorMessage = "";
   disabled = false;
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    this.dataService.Logout();
   }
   OnSubmit()
   {

@@ -7,7 +7,6 @@ import { LoginOrRegisterComponent } from './login-or-register/login-or-register.
 import { RenderControlComponent } from './render-control/render-control.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { UserPageComponent } from './user-page/user-page.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { EventCreateComponent } from './event-create/event-create.component';
 import { EventEditComponent } from './event-edit/event-edit.component';
@@ -19,7 +18,6 @@ import { InviteViewComponent } from './invite-view/invite-view.component';
     AppComponent,
     LoginOrRegisterComponent,
     RenderControlComponent,
-    UserPageComponent,
     UserHomeComponent,
     EventCreateComponent,
     EventEditComponent,

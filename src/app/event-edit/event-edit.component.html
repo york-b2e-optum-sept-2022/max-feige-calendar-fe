@@ -7,5 +7,6 @@ Event Description: <textarea [(ngModel)]="description"></textarea>
 {{errorMessage}}
 
 <div>
-  <div *ngFor = "let invite of invites" [class] ="'invite-class'+invite.status" >{{invite.invitee.username}}</div>
+  <div *ngFor = "let invite of invites" [class] ="'invite-class'+invite.status" >{{invite.invitee.username}}  <button (click) = "RemoveInvite(invite)">X</button>
+  </div>
 </div>

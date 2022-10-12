@@ -1,6 +1,15 @@
-<app-login-or-register (OnLogin)="SetState(RenderState.USER_PAGE)" *ngIf="rState===RenderState.LOGIN"></app-login-or-register>
-<app-user-home (ChangeState)="SetState($event)"  *ngIf="rState === RenderState.USER_PAGE"></app-user-home>
-<app-event-create (EventCreated)="SetState(RenderState.EVENT_EDIT,$event)" *ngIf ="rState === RenderState.EVENT_CREATE"></app-event-create>
-<app-event-edit [EventData]="this.inputData" (Deleted)="SetState(RenderState.USER_PAGE)" *ngIf="rState === RenderState.EVENT_EDIT"></app-event-edit>
-<app-events-view (EventSelect)="SetState(RenderState.EVENT_EDIT,$event)" *ngIf="rState === RenderState.EVENTS_VIEW"></app-events-view>
-<button (click)="SetState(RenderState.USER_PAGE)" *ngIf="rState !== RenderState.LOGIN && rState !== RenderState.USER_PAGE">Back</button>
+<div class = 'back'>
+  <app-login-or-register (OnLogin)="SetState(RenderState.USER_PAGE)"
+                         *ngIf="rState===RenderState.LOGIN"></app-login-or-register>
+  <app-user-home (ChangeState)="SetState($event)" *ngIf="rState === RenderState.USER_PAGE"></app-user-home>
+  <app-event-create (EventCreated)="SetState(RenderState.EVENT_EDIT,$event)"
+                    *ngIf="rState === RenderState.EVENT_CREATE"></app-event-create>
+  <app-event-edit [EventData]="this.inputData" (Deleted)="SetState(RenderState.USER_PAGE)"
+                  *ngIf="rState === RenderState.EVENT_EDIT"></app-event-edit>
+  <app-events-view (EventSelect)="SetState(RenderState.EVENT_EDIT,$event)"
+                   *ngIf="rState === RenderState.EVENTS_VIEW"></app-events-view>
+  <app-invite-view *ngIf="rState === RenderState.INVITE_VIEW"></app-invite-view>
+  <button (click)="SetState(RenderState.USER_PAGE)"
+          *ngIf="rState !== RenderState.LOGIN && rState !== RenderState.USER_PAGE">Back
+  </button>
+</div>

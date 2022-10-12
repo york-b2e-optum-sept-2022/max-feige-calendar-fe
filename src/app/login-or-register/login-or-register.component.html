@@ -1,8 +1,8 @@
-<form [formGroup]="userForm" (ngSubmit)="OnSubmit()">
-Username: <input type="text" formControlName="username">
-Password: <input type = "password" formControlName = "password">
-  <button type = "submit" [disabled]="!userForm.valid">Login</button>
-  <button type="button" (click)="OnRegister()" [disabled]="!userForm.valid">Register</button>
-  <div *ngIf="!userForm.valid">Password must be at least 6 characters, username must be less than 32 </div>
-  <div>{{errorMessage}}</div>
-</form>
+  <form class ='outer' [formGroup]="userForm" (ngSubmit)="OnSubmit()">
+  Username: <input type="text" formControlName="username">
+  Password: <input type = "password" formControlName = "password">
+    <div><button type = "submit" [disabled]="!userForm.valid">Login</button>
+    <button type="button" (click)="OnRegister()" [disabled]="!userForm.valid">Register</button></div>
+    <div *ngIf="!userForm.valid">Password must be at least 6 characters, username must be less than 32 </div>
+    <div>{{errorMessage}}</div>
+  </form>

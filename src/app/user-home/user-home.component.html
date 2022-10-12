@@ -1,5 +1,6 @@
-<div>
+<div id = 'outer'>
   <button (click) = "change(RenderState.EVENT_CREATE)">Create Event</button>
   <button (click) = "change(RenderState.EVENTS_VIEW)">View My Events</button>
   <button (click) = "change(RenderState.INVITE_VIEW)">View My Invites <span *ngIf="unanswered!==0" class="custom-badge">{{unanswered}}</span></button>
+  <button (click) = "change(RenderState.LOGIN)">Logout</button>
 </div>

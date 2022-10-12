@@ -99,6 +99,10 @@ export class DataService
     );
 
   }
+  public Logout()
+  {
+    this.currentUser = undefined;
+  }
 
   public AttemptLogin(uname: string, pwd: string): boolean
   {
@@ -230,6 +234,11 @@ export class DataService
   {
     //Get events we are the creator of
     return this.events.filter((e) => e.creator === this.GetCurrentUser());
+  }
+  public GetInvitedEvents()
+  {
+    //Get events that we have an invite to
+    return this.events.filter( (e) => e.invites.some( (inv)=>inv.invitee===this.currentUser));
   }
 
   private loadEvents(data: any): boolean

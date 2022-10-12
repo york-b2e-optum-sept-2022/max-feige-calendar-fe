@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {IEvent, IInvite, InviteStatus} from "../appTypes";
+import {IEvent, IInvite, InviteStatus, IUser} from "../appTypes";
 import {NgbCalendar, NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 import {DataService} from "../data.service";
 
@@ -74,6 +74,16 @@ export class EventEditComponent implements OnInit
     this.Update();
 
   }
+  RemoveInvite(invite: IInvite)
+  {
+    let foundInvite = this.event.invites.find((x)=>x===invite);
+    if(foundInvite === undefined)
+    {
+      throw "Removing invite from not-invited user, developer  error"
+    }
+    this.event.invites.splice(this.event.invites.indexOf(foundInvite),1);
+    this.Update();
+  }
   Delete()
   {
     this.dataService.DeleteEvent(this.event).subscribe(
@@ -88,7 +98,8 @@ export class EventEditComponent implements OnInit
           this.Deleted.emit();
         }
       }
-    )
+    );
   }
+
 
 }
