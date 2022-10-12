@@ -6,20 +6,27 @@ import {HttpClientModule} from "@angular/common/http";
 import { LoginOrRegisterComponent } from './login-or-register/login-or-register.component';
 import { RenderControlComponent } from './render-control/render-control.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { UserPageComponent } from './user-page/user-page.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { EventCreateComponent } from './event-create/event-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginOrRegisterComponent,
-    RenderControlComponent
+    RenderControlComponent,
+    UserPageComponent,
+    UserHomeComponent,
+    EventCreateComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    NgbModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        NgbModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

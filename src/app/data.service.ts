@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {IEvent, IInvite, IUser} from "./appTypes";
+import {IEvent, IInvite, InviteStatus, IUser} from "./appTypes";
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +37,10 @@ export class DataService {
       throw "There is no current user";
     }
     return this.currentUser;
+  }
+  public GetUnansweredInviteCount(user: IUser)
+  {
+    return this.events.filter( (x) => x.invites.find((inv)=>inv.invitee===user && inv.status===InviteStatus.UNANSWERED) !== undefined).length;
   }
   public AttemptRegister(uname: string, pwd: string) : Observable<[boolean,string?]>
   {
@@ -110,7 +114,7 @@ export class DataService {
       {
         let i: IInvite  =
           {
-            invitee: inv.invitee,
+            invitee: this.findUserByID(inv.invitee),
             status: inv.status
           };
         invites.push(i);
@@ -118,6 +122,7 @@ export class DataService {
       let e:IEvent =
       {
         id: event.id,
+        title: event.title,
         creator: this.findUserByID(event.ownerID),
         invites: invites,
         date: new Date(event.date)

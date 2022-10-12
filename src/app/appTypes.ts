@@ -19,7 +19,19 @@ export interface IInvite
 export interface IEvent
 {
   id: number,
+  title: string,
   creator: IUser,
   date: Date,
   invites: IInvite[]
+}
+
+
+export enum RenderState
+{
+  LOGIN=0,
+  EVENT_CREATE=1,
+  EVENT_EDIT=2,
+  INVITE_VIEW=3,
+  EVENT_VIEW=4,
+  USER_PAGE=5
 }

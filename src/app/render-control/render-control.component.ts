@@ -1,16 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from "../data.service";
+import {RenderState} from "../appTypes";
 
 
-enum RenderState
-{
-  LOGIN=0,
-  EVENT_CREATE=1,
-  EVENT_EDIT=2,
-  INVITE_VIEW=3,
-  EVENT_VIEW=4,
-  USER_PAGE=5
-}
 
 @Component({
   selector: 'app-render-control',
@@ -33,5 +25,6 @@ export class RenderControlComponent implements OnInit {
     console.log(this.dataService.GetCurrentUser());
     this.rState = state;
   }
+
 
 }
