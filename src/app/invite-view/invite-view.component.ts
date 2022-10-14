@@ -24,6 +24,7 @@ export class InviteViewComponent implements OnInit {
     this.invitedEvents = this.dataService.GetInvitedEvents();
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+    this.filter();
   }
 
   filter() : void
